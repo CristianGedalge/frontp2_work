@@ -118,6 +118,9 @@ export class ModelerComponent implements OnInit, OnDestroy {
   formChecks: Record<string, boolean> = {};
   instanceId: string | null = null;
 
+  // ---- UI State ----
+  showRightPanel = true;
+
   // ---- Multi-Selection (Plan §3: Macro-Operaciones) ----
   selectedNodes: NodeData[] = [];
   isSelectionBoxActive = false;
@@ -228,6 +231,10 @@ export class ModelerComponent implements OnInit, OnDestroy {
       },
       error: (err: any) => { /* Error handled silently */ }
     });
+  }
+
+  toggleRightPanel() {
+    this.showRightPanel = !this.showRightPanel;
   }
 
   connectToSocket() {
@@ -522,6 +529,8 @@ export class ModelerComponent implements OnInit, OnDestroy {
     }
 
     this.selectedNode = node;
+    this.showRightPanel = true; // Auto-show properties
+
     if (node.type === 'swimlane') {
       this.tempLaneWidth = node.width || 300;
       this.tempLaneHeight = node.height || 520;
@@ -533,6 +542,7 @@ export class ModelerComponent implements OnInit, OnDestroy {
     event.stopPropagation();
     this.selectedNode = null;
     this.selectedEdge = edge;
+    this.showRightPanel = true; // Auto-show properties
     this.edgeColor = edge.color || '#64748b';
   }
 
@@ -914,6 +924,7 @@ export class ModelerComponent implements OnInit, OnDestroy {
 
     this.nodes = [...this.nodes, newNode];
     this.selectedNode = newNode;
+    this.showRightPanel = true; // Auto-show properties
     this.checkAndExpandLanes();
     this.broadcastUpdate();
   }

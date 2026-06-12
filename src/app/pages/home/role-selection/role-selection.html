@@ -1,27 +1,34 @@
 <div class="role-grid">
-  <h1 nz-typography style="margin-bottom: 60px; font-size: 36px; font-weight: 700; color: var(--text-main);">
-    Bienvenido, <span style="color: var(--primary-color);">selecciona tu perfil</span>
-  </h1>
+  <div class="header-container">
+    <h1 class="main-title">Acceso a <span style="color: var(--primary-color);">WorkFlow</span></h1>
+    <p class="sub-title">Por favor, selecciona tu perfil para ingresar a la plataforma</p>
+  </div>
   
-  <div nz-row [nzGutter]="[40, 40]" nzJustify="center">
-    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="9">
-      <nz-card class="role-card" (click)="selectRole('designer')" [nzBodyStyle]="{ padding: '30px' }">
-        <div class="icon-container designer-bg">
-          <span nz-icon nzType="edit" nzTheme="outline" class="role-icon"></span>
-        </div>
-        <h3 class="role-title">Diseñador</h3>
-        <p nz-typography nzType="secondary">Crea, edita y gestiona diagramas BPMN y flujos de negocio complejos.</p>
-      </nz-card>
+  <div class="cards-wrapper">
+    <div class="h-card designer-card" (click)="selectRole('designer')">
+      <div class="h-icon-box">
+        <span nz-icon nzType="edit" nzTheme="outline"></span>
+      </div>
+      <div class="h-content">
+        <h3>Diseñador de Procesos</h3>
+        <p>Crea, edita y gestiona diagramas BPMN y flujos de negocio complejos.</p>
+      </div>
+      <div class="h-arrow">
+        <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+      </div>
     </div>
 
-    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="9">
-      <nz-card class="role-card" (click)="selectRole('staff')" [nzBodyStyle]="{ padding: '30px' }">
-        <div class="icon-container staff-bg">
-          <span nz-icon nzType="user" nzTheme="outline" class="role-icon"></span>
-        </div>
-        <h3 class="role-title">Funcionario</h3>
-        <p nz-typography nzType="secondary">Visualiza procesos asignados, reporta estados y consulta políticas.</p>
-      </nz-card>
+    <div class="h-card staff-card" (click)="selectRole('staff')">
+      <div class="h-icon-box">
+        <span nz-icon nzType="user" nzTheme="outline"></span>
+      </div>
+      <div class="h-content">
+        <h3>Funcionario Operativo</h3>
+        <p>Visualiza procesos asignados, reporta estados y consulta políticas.</p>
+      </div>
+      <div class="h-arrow">
+        <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+      </div>
     </div>
   </div>
 </div>

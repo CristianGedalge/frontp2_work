@@ -12,15 +12,25 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   imports: [CommonModule, NzCardModule, NzGridModule, NzTypographyModule, NzIconModule],
   templateUrl: './role-selection.html',
   styles: [`
-    .role-grid { padding: 100px 20px; text-align: center; max-width: 1000px; margin: 0 auto; }
-    .role-card { border-radius: 24px; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; border: 1px solid #f1f5f9; box-shadow: 0 4px 12px rgba(0,0,0,0.03); background: white; }
-    .role-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); border-color: var(--primary-color); }
-    .icon-container { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
-    .designer-bg { background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%); }
-    .staff-bg { background: linear-gradient(135deg, #34d399 0%, #10b981 100%); }
-    .role-icon { font-size: 64px; color: white; }
-    .role-title { font-size: 22px; font-weight: 600; margin-top: 10px; color: var(--text-main); }
-    .role-desc { color: var(--text-muted); font-size: 14px; padding: 0 24px 24px; }
+    .role-grid { padding: 80px 20px; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+    .header-container { text-align: center; margin-bottom: 50px; }
+    .main-title { font-size: 42px; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -1px; }
+    .sub-title { font-size: 18px; color: var(--text-muted); }
+    
+    .cards-wrapper { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 650px; }
+    .h-card { display: flex; align-items: center; padding: 24px 32px; border-radius: 16px; background: white; border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+    .h-card:hover { transform: translateX(10px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); border-color: var(--primary-color); }
+    
+    .h-icon-box { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-right: 24px; flex-shrink: 0; background: #f1f5f9; color: #64748b; transition: all 0.3s ease; }
+    .designer-card:hover .h-icon-box { background: #ffe4e6; color: #e11d48; }
+    .staff-card:hover .h-icon-box { background: #e0f2fe; color: #0284c7; }
+    
+    .h-content { flex: 1; text-align: left; }
+    .h-content h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; color: var(--text-main); }
+    .h-content p { margin: 0; font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+    
+    .h-arrow { color: #cbd5e1; font-size: 24px; transition: all 0.3s ease; margin-left: 16px; }
+    .h-card:hover .h-arrow { color: var(--primary-color); transform: translateX(5px); }
   `]
 })
 export class RoleSelectionComponent {
