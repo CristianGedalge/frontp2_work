@@ -1,0 +1,9 @@
+[build]
+  command = "npm install && npx ng build --configuration production"
+  publish = "dist/frontend/browser"
+
+# SPA fallback — redirect all routes to index.html for Angular routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
